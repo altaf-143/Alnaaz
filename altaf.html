@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Visiting Card</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+        }
+        /* Navbar */
+        .navbar {
+            background-color: #222;
+        }
+        .navbar-nav .nav-link {
+            color: #fff;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #28a745;
+            transform: scale(1.1);
+        }
+        .navbar-nav .nav-link.active {
+            color: #28a745;
+        }
+        /* Main Card */
+        .card-container {
+            max-width: 400px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            padding: 20px;
+        }
+        .icon-buttons a {
+            text-decoration: none;
+            color: #fff;
+            margin: 10px;
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        .icon-call { background-color: #28a745; }
+        .icon-whatsapp { background-color: #25d366; }
+        .icon-location { background-color: #007bff; }
+        .icon-email { background-color: #6c757d; }
+        .icon-buttons a:hover {
+            transform: scale(1.1);
+        }
+        .btn-custom {
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light fw-bold" href="#">MyDVC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Social</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Card Section -->
+    <div class="card-container">
+        <img src="https://via.placeholder.com/80" alt="Logo" class="mb-3">
+        <h4>Digital Visiting Card</h4>
+        <p class="text-muted">Your Digital Identity</p>
+        <h5 class="text-primary">MR. PATHIK SHAH</h5>
+        <p><em>(CEO)</em></p>
+        <p class="text-warning fw-bold">VIR DIGITECH PVT. LTD</p>
+        <!-- Action Icons -->
+        <div class="icon-buttons">
+            <a href="tel:+1234567890" class="icon-call" title="Call">☎</a>
+            <a href="https://wa.me/1234567890" target="_blank" class="icon-whatsapp" title="WhatsApp">✉</a>
+            <a href="https://goo.gl/maps/" target="_blank" class="icon-location" title="Location">📍</a>
+            <a href="mailto:example@email.com" class="icon-email" title="Email">✉</a>
+        </div>
+        <!-- Buttons -->
+        <button class="btn btn-outline-success btn-custom w-100 mt-3" onclick="addToContact()">Add to Phone Book</button>
+        <button class="btn btn-outline-secondary btn-custom w-100 mt-2" onclick="shareCard()">Share</button>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript -->
+    <script>
+        function addToContact() {
+            alert("Add to Contact feature triggered!");
+        }
+        function shareCard() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Digital Visiting Card',
+                    text: 'Check out this digital visiting card!',
+                    url: window.location.href
+                }).then(() => console.log('Shared successfully!'))
+                .catch((error) => console.log('Error sharing:', error));
+            } else {
+                alert('Share feature not supported on this browser.');
+            }
+        }
+    </script>
+</body>
+</html>
